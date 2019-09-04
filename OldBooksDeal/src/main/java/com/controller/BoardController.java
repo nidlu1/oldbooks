@@ -27,6 +27,7 @@ public class BoardController
 {
 	@Autowired
 	BoardService bService;
+	
 
 	@RequestMapping(value = "/boardUI/{page}")
 	public String boardUI(HttpSession session,
