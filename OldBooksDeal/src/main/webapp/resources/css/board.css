@@ -1,0 +1,58 @@
+.boardTable
+{
+	text-align: center;
+	border-bottom: 1.5px solid black;
+	border-left: 1.5px solid black;
+	border-right: 1.5px solid black;
+	border-top: 1.5px solid black;
+}
+.boardHead
+{
+	background-color: yellow;
+}
+.boardContent
+{
+	border-bottom: 1px solid #dddddd;
+}
+.boardBtn
+{	
+	margin: 15px;
+	height: 50;
+	width: 70;
+	font-size: 10px;
+}
+.boardId
+{
+	width: 60px;
+	
+}
+.boardType
+{
+	width: 100px;
+	
+}
+.boardTitle
+{
+	width: 400px;
+	
+}
+.boardUsername
+{
+	width: 100px;
+	
+}
+.boardGood
+{
+	width: 60px;
+	
+}
+.boardViews
+{
+	width: 80px;
+	
+}
+.boardWritedate
+{
+	width: 60px;
+	
+}

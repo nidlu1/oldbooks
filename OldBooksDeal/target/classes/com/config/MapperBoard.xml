@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mpBoard">
+<select id="listAll" resultType="BoardDTO" parameterType="com.commons.util.pagingMaker">
+ <![CDATA[
+select 	no, group_no, group_order, depth, type, title, content, good, views, writedate, id, username
+from (
+        select	rownum rn, no, group_no, group_order, depth, type, title, content, good, views, writedate, id, username
+        from (
+                select 	aa.no, aa.group_no, aa.group_order, aa.depth, aa.type, aa.title, aa.content, aa.good, aa.views, aa.writedate, id, bb.username
+                from BOARD_DB aa join USERS_DB bb using(id)   
+                order by no desc            
+            ) cc
+        where rownum <= #{pageCnt}*#{curPage}
+        ) cc
+where	cc.rn >= 1+#{pageCnt}*(#{curPage}-1)
+]]>
+
+</select>
+
+<select id="totalBoardCnt" resultType="int">
+	select count(*) from board_db
+</select>
+
+<insert id="boardWrite" parameterType="BoardDTO">
+	insert into BOARD_DB
+			(no, group_no, group_order, depth, type, title, content, good, views, writedate, id)
+	values 	(seq_board_no.nextval, seq_board_no.nextval, 0, 1, #{type}, #{title}, #{content},0,0,#{writedate},#{id})
+</insert>
+
+<select id="boardRetrieve" parameterType="int" resultType="BoardDTO">
+	select 	no, group_no, group_order, depth, type, title, content, good, views, writedate, id, username
+	from 	BOARD_DB join USERS_DB using (id)
+	where 	no=#{no}
+</select>
+<update id="viewUpdate" parameterType="int">
+	update BOARD_DB
+	set views = views+1
+	where no = #{no}
+</update>
+
+<update id="boardWriteUpdate">
+	UPDATE BOARD_DB
+	SET type = #{type}, title = #{title}, content = #{content}, writedate = #{writedate}
+	WHERE no=#{no}
+</update>
+
+<delete id="boardRetrieveDelete" parameterType="int">
+	DELETE
+	FROM BOARD_DB
+	WHERE no=#{no}
+</delete>
+
+<select id="schBoardList" resultType="BoardDTO" parameterType="hashmap">
+
+select 	no, group_no, group_order, depth, type, title, content, good, views, writedate, id, username
+from (
+        select	rownum rn, no, group_no, group_order, depth, type, title, content, good, views, writedate, id, username
+        from (
+                select 	aa.no, aa.group_no, aa.group_order, aa.depth, aa.type, aa.title, aa.content, aa.good, aa.views, aa.writedate, id, bb.username
+                from BOARD_DB aa join USERS_DB bb using(id)   
+                <if test="schType=='title'">where title like '%'||#{schWord}||'%'</if>
+                <if test="schType=='author'">where username = #{schWord}</if>
+                order by no desc           
+            ) cc
+        where rownum &lt;= #{pm.pageCnt}*#{pm.curPage}
+        ) cc
+where	cc.rn &gt;= 1+#{pm.pageCnt}*(#{pm.curPage}-1)
+
+
+</select>
+</mapper>

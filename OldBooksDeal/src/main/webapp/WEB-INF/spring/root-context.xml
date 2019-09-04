@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+<!-- Mybatis begin -->
+	<context:property-placeholder location="classpath:com/config/jdbc.properties"/>
+	<bean id="sqlDriver" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${oracle.jdbc}"/>
+		<property name="url" value="${oracle.url}"/>
+		<property name="username" value="${oracle.username}"/>
+		<property name="password" value="${oracle.password}"/>
+	</bean>
+	<bean id="sqlConfiguration" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="sqlDriver"/>
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:com/config/MapperUsers.xml</value>
+				<value>classpath:com/config/MapperBoard.xml</value>
+			</list>
+		</property>
+		<property name="typeAliases">
+			<list>
+				<value>com.dto.UsersDTO</value>
+				<value>com.dto.BoardDTO</value>
+			</list>
+		</property>
+	</bean>
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlConfiguration"/>
+	</bean>
+<!-- Mybatis end -->
+<!-- transaction -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="sqlDriver"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="txManager"/>
+</beans>
