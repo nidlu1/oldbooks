@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="css/board.css">
+<script src="js/signUp/uAjax.js"></script>
 <style>
 .bTitle
 {
@@ -20,6 +21,7 @@
 </style>
 
 <c:set value="${boardRetrieve}" var="b"></c:set>
+
 
 <h1>게시판 보기</h1>
 <br>
@@ -45,8 +47,8 @@
 					<th class="bTitle">조회수</th>
 					<td class="bContent">${b.views}</td>
 <!-- 					좋아요 링크걸기: ajax사용				 -->
-					<th class="bTitle">좋아요</th>
-					<td class="bContent">${b.good}</td>				
+					<th class="bTitle"><button id="btnGood">좋아요</button></th>
+					<td class="bContent" id="goodState">${b.good}</td>				
 				</tr>
 				<tr>
 					<th class="bTitle">글내용</th>
@@ -57,7 +59,7 @@
 	</div>
 	<div>
 		<button class="boardBtn">답변하기</button>			
-		<button class="boardBtn" id="btnReturn">돌아가기</button>			
+		<button class="boardBtn" id="btnReturn">돌아가기 ${b.id}</button>			
 		<c:if test="${b.id == Userlogin.id}">
 			<button class="boardBtn" id="bUpdate">수정하기</button>
 			<button class="boardBtn" id="bDelete">삭제하기</button>
@@ -93,5 +95,40 @@
 			}
 		});
 		
+	});
+</script>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$("#btnGood").on("click",function()
+		{
+			var idCheck = "${Userlogin.id}";
+			var writer = "${b.id}";
+			
+			if(idCheck==null)
+			{
+				alert("로그인이 필요한 작업니다");
+			}else if(idCheck==writer)
+			{
+				alert("자기글에 추천할 수 없습니다");
+			}else
+			{	
+				uAjax2
+				(
+				'post',
+				"goodClick",
+				{'Content-Type':'application/json'},
+				JSON.stringify( {boardNo:${b.no}, usersId: idCheck } ),
+				"text",
+				function(data,status,xhr)
+				{
+					$("#goodState").text(data);
+				},
+				function(xhr,status,error){}
+				
+				);
+			}
+			
+		});
 	});
 </script>

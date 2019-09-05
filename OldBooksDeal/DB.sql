@@ -80,3 +80,24 @@ where b2.rn >= 1 ;
 			b.content, b.good, b.views, b.writedate, id, u.username
 	from 	BOARD_DB b NATURAL join USERS_DB u
 	order by b.no desc;
+	
+--good_db
+drop table good_db;
+CREATE TABLE good_db
+(
+  good_no number(10) CONSTRAINT good_pk primary key,
+  idcheck char(1),
+  users_id varchar2(50) CONSTRAINT goods_fk_users REFERENCES users_db(id) ON DELETE CASCADE,
+  board_no number(10) CONSTRAINT goods_fk_board REFERENCES board_db(no) ON DELETE CASCADE
+); 
+drop SEQUENCE seq_board_no;
+create SEQUENCE seq_board_no
+start with 1;
+
+insert into GOOD_DB (good_no, idcheck, users_id, board_no)
+values(seq_board_no.nextval, 0, 'z', 7);
+
+select good_no, idCheck, users_id, board_no, good as goods
+from good_db gg join board_db bb
+on gg.BOARD_NO = bb.NO
+and users_id = 'dd' and board_no = 5;

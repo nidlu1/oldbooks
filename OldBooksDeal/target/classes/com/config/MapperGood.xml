@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mpGood">
+
+<insert id="goodInsert" parameterType="GoodDTO">
+	insert into GOOD_DB (good_no, idcheck, users_id, board_no)
+	values(seq_board_no.nextval, 0, #{users_id}, #{board_no})
+</insert>
+
+<select id="goodSelect" parameterType="GoodDTO" resultType="GoodDTO">
+	select 	good_no, idCheck, users_id, board_no, good as goods
+	from 	good_db gg join board_db bb
+	on 		gg.BOARD_NO = bb.NO
+			and users_id = #{users_id} and board_no = #{board_no}
+</select>
+
+<update id="idCheck" parameterType="GoodDTO">
+	UPDATE 	good_db
+	SET 	idcheck = '1'
+	where 	users_id =#{users_id} and board_no=#{board_no}
+</update>
+
+<update id="viewsPlus" parameterType="GoodDTO">
+	UPDATE 	board_db
+	SET 	good = good+1
+	where 	no=#{board_no}
+</update>
+
+
+
+
+</mapper>

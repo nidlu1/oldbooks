@@ -23,12 +23,14 @@
 			<list>
 				<value>classpath:com/config/MapperUsers.xml</value>
 				<value>classpath:com/config/MapperBoard.xml</value>
+				<value>classpath:com/config/MapperGood.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
 			<list>
 				<value>com.dto.UsersDTO</value>
 				<value>com.dto.BoardDTO</value>
+				<value>com.dto.GoodDTO</value>
 			</list>
 		</property>
 	</bean>
