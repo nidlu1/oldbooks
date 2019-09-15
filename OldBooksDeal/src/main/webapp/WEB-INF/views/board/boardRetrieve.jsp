@@ -59,7 +59,7 @@
 	</div>
 	<div>
 		<button class="boardBtn">답변하기</button>			
-		<button class="boardBtn" id="btnReturn">돌아가기 ${b.id}</button>			
+		<button class="boardBtn" id="btnReturn">돌아가기 </button>			
 		<c:if test="${b.id == Userlogin.id}">
 			<button class="boardBtn" id="bUpdate">수정하기</button>
 			<button class="boardBtn" id="bDelete">삭제하기</button>
@@ -68,10 +68,7 @@
 </div>
 
 <div>
-댓글내용
-</div>
-<div>
-댓글입력
+	<jsp:include page="/WEB-INF/views/comment/cWrite.jsp"/>
 </div>
 <script	type="text/javascript">//버튼 클릭시 링크이동하는 스크립트
 	$(document).ready(function()
