@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mpComent">
+	<select id="cAllList" parameterType="int" resultType="ComentDTO">
+		select comentno,board_no, username, group_no, group_order, depth, content, good, TO_CHAR(writeday, 'HH24:MI:SS') as writeday
+		from comment_db aa join USERS_DB bb
+        on (aa.USERS_ID = bb.ID);
+		where board_no = #{no}
+	</select>
+</mapper>

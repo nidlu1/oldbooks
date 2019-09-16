@@ -70,6 +70,7 @@
 <div>
 	<jsp:include page="/WEB-INF/views/comment/cWrite.jsp"/>
 </div>
+
 <script	type="text/javascript">//버튼 클릭시 링크이동하는 스크립트
 	$(document).ready(function()
 	{

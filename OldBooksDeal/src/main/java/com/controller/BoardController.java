@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -19,14 +20,19 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.commons.util.SessionUtil;
 import com.commons.util.pagingMaker;
 import com.dto.BoardDTO;
+import com.dto.ComentDTO;
 import com.dto.PageBoardDTO;
 import com.service.BoardService;
+import com.service.ComentService;
 
 @Controller
 public class BoardController
 {
 	@Autowired
 	BoardService bService;
+	
+	@Autowired
+	ComentService cService;
 	
 
 	@RequestMapping(value = "/boardUI/{page}")
@@ -76,8 +82,11 @@ public class BoardController
 		BoardDTO bDTO = new BoardDTO();
 		bDTO = bService.boardRetrieve(no);
 		
+		List<ComentDTO> cList  = cService.cAllList(no);
+
 		SessionUtil su = new SessionUtil();
 		su.setAttribute("boardRetrieve", bDTO, session);
+		su.setAttribute("comentList", cList, session);
 		
 		return "redirect:../boardRetrieveUI";
 	}

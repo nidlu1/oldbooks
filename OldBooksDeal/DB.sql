@@ -101,3 +101,32 @@ select good_no, idCheck, users_id, board_no, good as goods
 from good_db gg join board_db bb
 on gg.BOARD_NO = bb.NO
 and users_id = 'dd' and board_no = 5;
+
+--coment_db
+drop table comment_db;
+CREATE TABLE comment_db
+(
+  comentno number (10) CONSTRAINT coment_pk primary key,
+  users_id varchar2(50) CONSTRAINT coment_fk_board REFERENCES users_db(id) ON DELETE CASCADE,
+  board_no number(10) CONSTRAINT coment_fk_user REFERENCES board_db(no) ON DELETE CASCADE,
+  group_no number(3) ,
+  group_order number(3) ,
+  depth number(3) ,
+  content varchar2(500) ,
+  good number(3)
+); 
+alter table comment_db
+add writeday date;
+
+
+drop SEQUENCE seq_coment_no;
+create SEQUENCE seq_coment_no
+start with 1;
+
+insert into comment_db (comentno, users_id, board_no, group_no, group_order, depth, content, good, writeday)
+values(seq_coment_no.nextval, 'x', 21, seq_coment_no.nextval, 0, 0, '댓글임6', 2, sysdate);
+
+select comentno,board_no, username, group_no, group_order, depth, content, good, writeday 
+from comment_db aa join USERS_DB bb
+on (aa.USERS_ID = bb.ID)
+where board_no = 21;

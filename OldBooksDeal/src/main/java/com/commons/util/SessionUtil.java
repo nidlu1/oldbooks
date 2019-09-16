@@ -16,6 +16,7 @@ public class SessionUtil {
 		 * {boardRetrieve : bDTO}	:	게시판 글 내용 관련 세션
 		 * {boardSchList : boardlistAll} : 게시판 검색하기 관련 세션
 		 * {schWord : schWord} : 게시판 검색어 세션
+		 * {comentList : cList} : 댓글전부를 저장하는 세션
 		 */
 	}
 

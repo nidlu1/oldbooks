@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.commons.util.SessionUtil;
 import com.commons.util.pagingMaker;
 import com.dto.BoardDTO;
+import com.dto.GoodDTO;
 import com.dto.PageBoardDTO;
 import com.service.BoardService;
 
@@ -32,13 +33,13 @@ public class CommentController
 	
 	@ResponseBody
 	@RequestMapping(value = "/commentInput" )
-	public String commentInput(@RequestBody Map<String, String> map)
+	public GoodDTO commentInput(@RequestBody Map<String, String> map)
 	{
 		System.out.println(map);
 		//받아온 파라미터를 이용하여 댓글을 저장하고, 댓글을 출력한다.
+		GoodDTO dto = new GoodDTO(854, '0', "asd", 251, 6);
 		
-		
-		return "rr";
+		return dto;
 	}
 	
 }
