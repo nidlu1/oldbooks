@@ -90,6 +90,10 @@ CREATE TABLE good_db
   users_id varchar2(50) CONSTRAINT goods_fk_users REFERENCES users_db(id) ON DELETE CASCADE,
   board_no number(10) CONSTRAINT goods_fk_board REFERENCES board_db(no) ON DELETE CASCADE
 ); 
+alter table GOOD_DB
+add comentno number(10) CONSTRAINT good_fk_coment REFERENCES comment_db(comentno) ON DELETE CASCADE;
+
+
 drop SEQUENCE seq_board_no;
 create SEQUENCE seq_board_no
 start with 1;

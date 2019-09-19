@@ -21,7 +21,7 @@
 </style>
 
 <c:set value="${boardRetrieve}" var="b"></c:set>
-
+<c:set value="${comentList}" var="comm"/>
 
 <h1>게시판 보기</h1>
 <br>
@@ -66,7 +66,8 @@
 		</c:if>
 	</div>
 </div>
-
+<br>
+댓글
 <div>
 	<jsp:include page="/WEB-INF/views/comment/cWrite.jsp"/>
 </div>

@@ -9,33 +9,33 @@
 }
 </style>
 
-<div>
-	댓글리스트(게시판 들어달 때 댓글도 불러오는 트랜잭션 처리)<br>
-	<span id="test1"></span><br>
-	<span id="test2"></span><br>
-	<span id="test3"></span><br>
+<div id="divComent">
+	<div></div>
 	<table border="1">
 		<thead>
-			<tr>
-				<td>작성자</td>
-				<td class="cComent">내용</td>
-				<td>좋아요<br>작성날짜</td>
-			</tr>
 		</thead>
-		<tbody>
+		<tbody id="tbodyComent">
 			<c:forEach items="${comentList}" var="com">
 			<tr>
 				<td>${com.username}</td>
 				<td class="cComent">${com.content}</td>
-				<td>${com.goods}<br>${com.writeday }</td>
+				<td>${com.goods}
+				<br>${com.writeday }</td>
+				<td><button class="goodPoint" data-good="${com.comentno}" >좋아요</button>
+				<c:if test="${Userlogin.username==com.username}">
+				<button class="delComent" data-num="${com.comentno}" >삭제</button>
+				</c:if>
+				</td>
 			</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 </div>
+<div></div>
 <c:if test="${empty Userlogin}">
 	로그인 해야 댓글을 달 수 있습니다	
 </c:if>
+
 <c:if test="${!empty Userlogin}">
 	<div>
 		<table></table>
@@ -47,6 +47,58 @@
 <script type="text/javascript">
 	$(document).ready(function()
 	{
+		$(".goodPoint").on("click",function()
+		{
+			
+			var cgoodVar = $(this).attr("data-good"); //코멘트넘버
+			var id = "${Userlogin.id}";
+			
+				/*
+				uAjax2(
+						"post",
+						"goodUpdate",
+						{'Content-Type':'application/json'},
+						JSON.stringify( {'cgoodVar':cgoodVar} ),
+						"text",
+						function(_data)
+						{
+							alert("수정됨");
+							
+						},
+						function(_error)
+						{
+							
+						}
+						);
+				*/
+			
+		});
+		
+		
+		$(".delComent").on("click",function()
+		{
+			var cnoVar = $(this).attr("data-num");
+			console.log(cnoVar);
+			uAjax2(
+					"post",
+					"delComent",
+					{'Content-Type':'application/json'},
+					JSON.stringify( {'no':cnoVar} ),
+					"text",
+					function(_data)
+					{
+						alert("삭제되었습니다");
+						
+						$("#divComent").empty();
+						$("#divComent").load(location.href+' #divComent');
+					},
+					function(_error)
+					{
+						
+					}
+					);
+			
+		});
 		
 		$("#cWrite").on("click",function()
 		{
@@ -56,19 +108,36 @@
 			uAjax2("post",
 					"commentInput",
 					{'Content-Type':'application/json'},
-					JSON.stringify( {c:comm, id:cId, bno : cbno } ),
+					JSON.stringify( {content:comm, id:cId, bno : cbno } ),
 					"json",
 					function(data)
-					{
-						console.log(data);
-						$("#test1").html(data);
-					
-						$("#test3").html(data.idCheck);
-					},
+					{		
+						var username = data.username;
+						var content = data.content;
+						var goods = data.goods;
+						var writeday = data.writeday;
+						
+						$("#tbodyComent").append
+						/*
+						(
+							"<tr><td>"+ username + 
+							"</td><td>"+content +
+							"</td><td>"+goods+"<br>"+writeday+"<br>"+"</td>" +
+							"<td><button>좋아요</button> "+
+							"<button class='delComent' >삭제</button></td></tr>"
+
+						);*/	
+						
+						$("#divComent").load(location.href+' #divComent');
+			
+					},	
 					function(error)
 					{
 						console.log(error);
 					});
 		});
+		
+		
+
 	});
 </script>

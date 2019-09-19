@@ -5,7 +5,7 @@ import java.util.Date;
 import org.apache.ibatis.type.Alias;
 
 @Alias(value = "ComentDTO")
-public class ComentDTO {
+public class ComentDTO  {
 	private int comentno;
 	private int board_no;
 	private String username;
@@ -13,8 +13,8 @@ public class ComentDTO {
 	private int group_order;
 	private int depth;
 	private String content;
-	private int goods;
-	private Date writeday;
+	private int good;
+	private String writeday;
 	public ComentDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -22,7 +22,7 @@ public class ComentDTO {
 
 
 	public ComentDTO(int comentno, int board_no, String username, int group_no, int group_order, int depth,
-			String content, int goods, Date writeday) {
+			String content, int goods, String writeday) {
 		super();
 		this.comentno = comentno;
 		this.board_no = board_no;
@@ -31,7 +31,7 @@ public class ComentDTO {
 		this.group_order = group_order;
 		this.depth = depth;
 		this.content = content;
-		this.goods = goods;
+		this.good = goods;
 		this.writeday = writeday;
 	}
 	public int getComentno() {
@@ -77,24 +77,24 @@ public class ComentDTO {
 		this.content = content;
 	}
 	public int getGoods() {
-		return goods;
+		return good;
 	}
 	public void setGoods(int goods) {
-		this.goods = goods;
+		this.good = goods;
 	}
 
-	public Date getWriteday() {
+	public String getWriteday() {
 		return writeday;
 	}
 
-	public void setWriteday(Date writeday) {
+	public void setWriteday(String writeday) {
 		this.writeday = writeday;
 	}
 	@Override
 	public String toString() {
 		return "ComentDTO [comentno=" + comentno + ", board_no=" + board_no + ", username=" + username + ", group_no="
 				+ group_no + ", group_order=" + group_order + ", depth=" + depth + ", content=" + content + ", goods="
-				+ goods + "]";
+				+ good + "]";
 	}
 	
 	

@@ -83,6 +83,7 @@ public class BoardController
 		bDTO = bService.boardRetrieve(no);
 		
 		List<ComentDTO> cList  = cService.cAllList(no);
+		
 
 		SessionUtil su = new SessionUtil();
 		su.setAttribute("boardRetrieve", bDTO, session);
