@@ -21,9 +21,11 @@ import com.commons.util.SessionUtil;
 import com.commons.util.pagingMaker;
 import com.dto.BoardDTO;
 import com.dto.ComentDTO;
+import com.dto.GoodDTO;
 import com.dto.PageBoardDTO;
 import com.service.BoardService;
 import com.service.ComentService;
+import com.service.GoodService;
 
 @Controller
 public class BoardController
@@ -33,6 +35,9 @@ public class BoardController
 	
 	@Autowired
 	ComentService cService;
+	
+	@Autowired
+	GoodService gSevice;
 	
 
 	@RequestMapping(value = "/boardUI/{page}")
@@ -83,12 +88,11 @@ public class BoardController
 		bDTO = bService.boardRetrieve(no);
 		
 		List<ComentDTO> cList  = cService.cAllList(no);
-		
-
+		List<GoodDTO> gList = gSevice.gListAll(no);
 		SessionUtil su = new SessionUtil();
 		su.setAttribute("boardRetrieve", bDTO, session);
 		su.setAttribute("comentList", cList, session);
-		
+		//su.setAttribute("goodList", gList, session);
 		return "redirect:../boardRetrieveUI";
 	}
 	

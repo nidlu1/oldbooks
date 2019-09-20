@@ -1,11 +1,13 @@
 package com.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,7 @@ import com.dto.GoodDTO;
 import com.dto.PageBoardDTO;
 import com.service.BoardService;
 import com.service.ComentService;
+import com.service.GoodService;
 
 @Controller
 public class CommentController
@@ -31,6 +34,8 @@ public class CommentController
 	BoardService bService;
 	@Autowired
 	ComentService cService;
+	@Autowired
+	GoodService gService;
 	
 	@ResponseBody
 	@RequestMapping(value = "/commentInput" )
@@ -55,18 +60,13 @@ public class CommentController
 	
 	@ResponseBody
 	@RequestMapping(value = "/goodUpdate")
-	public void goodUpdate(@RequestBody Map<String, String> map)
+	public int goodUpdate(@RequestBody Map<String, String> map)
 	{
-		//good_db 인설트 및 good과 DB가져오기.
-		
-		/*
 		System.out.println(map);
-		ComentDTO cDTO = cService.selectOne(map);
+		int n = cService.goodUpdate(map);
+		//GoodDTO gdto = gService.selectCheck(map);
 		
-		System.out.println(cDTO.getUsername());
-		
-		cService.goodUpdate(map);
-		*/
-	}
+		return n;
+	}	
 	
 }

@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,16 @@ public class GoodService {
 	public void goodUpdate(GoodDTO parameter) {
 		dao.goodUpdate(parameter);
 		
+	}
+
+	public List<GoodDTO> gListAll(int no) {
+		List<GoodDTO> list = dao.gListAll(no);
+		return list;
+	}
+
+	public GoodDTO selectCheck(Map<String, String> map) {
+		GoodDTO gDTO = dao.selectCheck(map);
+		return gDTO;
 	}
 
 }

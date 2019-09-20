@@ -17,6 +17,7 @@ public class SessionUtil {
 		 * {boardSchList : boardlistAll} : 게시판 검색하기 관련 세션
 		 * {schWord : schWord} : 게시판 검색어 세션
 		 * {comentList : cList} : 댓글전부를 저장하는 세션
+		 * {goodList : gList} : 좋아요 관련 세션 저장
 		 */
 	}
 

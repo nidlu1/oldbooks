@@ -18,10 +18,11 @@
 			<c:forEach items="${comentList}" var="com">
 			<tr>
 				<td>${com.username}</td>
-				<td class="cComent">${com.content}</td>
-				<td>${com.goods}
-				<br>${com.writeday }</td>
-				<td><button class="goodPoint" data-good="${com.comentno}" >좋아요</button>
+				<td class="cComent" >${com.content}</td>
+				<td>
+					<div class="comGoods" data-comentno="${com.comentno}">${com.goods}</div><br>
+					${com.writeday}</td>
+				<td><button class="goodPoint" data-good="${com.comentno}" data-username="${com.username}" >좋아요</button>
 				<c:if test="${Userlogin.username==com.username}">
 				<button class="delComent" data-num="${com.comentno}" >삭제</button>
 				</c:if>
@@ -31,7 +32,8 @@
 		</tbody>
 	</table>
 </div>
-<div></div>
+<div>
+</div>
 <c:if test="${empty Userlogin}">
 	로그인 해야 댓글을 달 수 있습니다	
 </c:if>
@@ -51,26 +53,41 @@
 		{
 			
 			var cgoodVar = $(this).attr("data-good"); //코멘트넘버
-			var id = "${Userlogin.id}";
+			var comentUser = $(this).attr("data-username"); //
+			var writeUser = "${Userlogin.username}";
+			var id = "${Userlogin.id}"; // ""과 null은 다른의미
+			var bno = ${boardRetrieve.no};
 			
-				/*
-				uAjax2(
-						"post",
-						"goodUpdate",
-						{'Content-Type':'application/json'},
-						JSON.stringify( {'cgoodVar':cgoodVar} ),
-						"text",
-						function(_data)
-						{
-							alert("수정됨");
-							
-						},
-						function(_error)
-						{
-							
-						}
-						);
-				*/
+			console.log(cgoodVar, comentUser, writeUser, id, bno);
+				if(id=="")
+				{
+					alert("로그인해야 좋아요를 누를 수 있습니다.");
+				}else if(comentUser==writeUser)
+				{
+					alert("자신이 쓴 댓글엔 좋아요를 누룰 수 없습니다.");
+				}else{
+					uAjax2(
+							"post",
+							"goodUpdate",
+							{'Content-Type':'application/json'},
+							JSON.stringify( {'cgoodVar':cgoodVar, 'bno':bno, 'id':id} ),
+							"text",
+							function(_data)
+							{
+								alert("좋아요가 눌러졌습니다");
+								console.log(_data)
+								if(true) //_data를 잘못 받아왔음.
+								{
+									$(".comGoods").html(_data);									
+								}
+							},
+							function(_error)
+							{
+								
+							}
+							);				
+				}
+				
 			
 		});
 		

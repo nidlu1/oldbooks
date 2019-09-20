@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dto.ComentDTO;
+import com.dto.GoodDTO;
 
 @Repository
 public class ComentDAO {
@@ -31,9 +32,12 @@ public class ComentDAO {
 		
 	}
 
-	public void goodUpdate(Map<String, String> map) {
-		template.update("mpComent.goodUpdate",map);
-		
+	public int goodUpdate(Map<String, String> map) {
+		template.insert("mpGood.goodInsertComent",map); //넣고
+		template.update("mpGood.goodUpdate",map);//수정하고
+		template.update("mpGood.idcheckComent",map);//체크로 바꾸고
+		int gDTO = template.selectOne("mpGood.goodSelect22",map); //꺼낸다
+		return gDTO;
 	}
 
 	public ComentDTO selectOne(Map<String, String> map) {

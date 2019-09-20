@@ -20,10 +20,12 @@
 }
 </style>
 
-<c:set value="${boardRetrieve}" var="b"></c:set>
-<c:set value="${comentList}" var="comm"/>
+<c:set value="${boardRetrieve}" var="b"/>
+<c:set value="${comentList}" var="c"/>
+<c:set value="${goodList}" var="g"/>
 
-<h1>게시판 보기</h1>
+<h1>게시판 보기 </h1>
+
 <br>
 <div class="inline">
 	<div>

@@ -31,9 +31,10 @@ public class ComentService {
 		dao.delComent(map);
 		
 	}
-
-	public void goodUpdate(Map<String, String> map) {
-		dao.goodUpdate(map);
+	
+	@Transactional
+	public int goodUpdate(Map<String, String> map) {
+		return dao.goodUpdate(map);
 		
 	}
 

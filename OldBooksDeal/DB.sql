@@ -94,8 +94,8 @@ alter table GOOD_DB
 add comentno number(10) CONSTRAINT good_fk_coment REFERENCES comment_db(comentno) ON DELETE CASCADE;
 
 
-drop SEQUENCE seq_board_no;
-create SEQUENCE seq_board_no
+drop SEQUENCE seq_good_no;
+create SEQUENCE seq_good_no
 start with 1;
 
 insert into GOOD_DB (good_no, idcheck, users_id, board_no)
