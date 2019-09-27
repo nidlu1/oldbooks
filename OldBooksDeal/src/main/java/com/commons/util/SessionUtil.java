@@ -18,6 +18,8 @@ public class SessionUtil {
 		 * {schWord : schWord} : 게시판 검색어 세션
 		 * {comentList : cList} : 댓글전부를 저장하는 세션
 		 * {goodList : gList} : 좋아요 관련 세션 저장
+		 * {boardTypeList : boardlistAll} : 게시글 종류 관련 세션
+		 * 
 		 */
 	}
 

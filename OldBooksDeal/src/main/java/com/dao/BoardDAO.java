@@ -52,4 +52,12 @@ public class BoardDAO {
 		List<BoardDTO> list = template.selectList("mpBoard.schBoardList",map);
 		return list;
 	}
+
+	public List<BoardDTO> typeBoardList(pagingMaker pagingMaker, String type) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("pm", pagingMaker);
+		map.put("type", type);
+		List<BoardDTO> list = template.selectList("mpBoard.typeBoardList",map);
+		return list;
+	}
 }

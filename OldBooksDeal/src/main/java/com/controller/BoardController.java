@@ -123,7 +123,6 @@ public class BoardController
 								@RequestParam Map<String,String> schMap)
 	{
 		
-		
 		int curPage = Integer.parseInt(page);
 		int totalBoard = bService.totalBoardCnt();	
 		pagingMaker pagingMaker = new pagingMaker(curPage, 5, totalBoard, 5);
@@ -144,6 +143,80 @@ public class BoardController
 		rda.addFlashAttribute("next", pagingMaker.isNext());
 
 		return "redirect:../boardSch";
+	}
+	
+	@RequestMapping(value = "boardFreeUI/{page}")
+	public String boardFreeUI(HttpSession session,
+								@PathVariable("page") String page,
+								RedirectAttributes rda)
+	{
+		String type = "자유";
+		int curPage = Integer.parseInt(page);
+		int totalBoard = bService.totalBoardCnt();	
+		pagingMaker pagingMaker = new pagingMaker(curPage, 5, totalBoard, 5);
+		
+		List<BoardDTO> boardlistAll = bService.typeBoardList(pagingMaker, type);
+		SessionUtil su = new SessionUtil();
+		su.setAttribute("boardTypeList", boardlistAll, session);
+		
+		rda.addFlashAttribute("startPage", pagingMaker.getStartPage());
+		rda.addFlashAttribute("endPage", pagingMaker.getEndPage());
+		rda.addFlashAttribute("curPage", pagingMaker.getCurPage());
+		rda.addFlashAttribute("perPage", pagingMaker.getPerPage());
+		rda.addFlashAttribute("perPageCnt", pagingMaker.getPerPageCnt());
+		rda.addFlashAttribute("prev", pagingMaker.isPrev());
+		rda.addFlashAttribute("next", pagingMaker.isNext());
+		
+		return "redirect:../boardType";
+	}
+	@RequestMapping(value = "boardAppreciateUI/{page}")
+	public String boardAppreciateUI(HttpSession session,
+			@PathVariable("page") String page,
+			RedirectAttributes rda)
+	{
+		String type = "감상";
+		int curPage = Integer.parseInt(page);
+		int totalBoard = bService.totalBoardCnt();	
+		pagingMaker pagingMaker = new pagingMaker(curPage, 5, totalBoard, 5);
+		
+		List<BoardDTO> boardlistAll = bService.typeBoardList(pagingMaker, type);
+		SessionUtil su = new SessionUtil();
+		su.setAttribute("boardTypeList", boardlistAll, session);
+		
+		rda.addFlashAttribute("startPage", pagingMaker.getStartPage());
+		rda.addFlashAttribute("endPage", pagingMaker.getEndPage());
+		rda.addFlashAttribute("curPage", pagingMaker.getCurPage());
+		rda.addFlashAttribute("perPage", pagingMaker.getPerPage());
+		rda.addFlashAttribute("perPageCnt", pagingMaker.getPerPageCnt());
+		rda.addFlashAttribute("prev", pagingMaker.isPrev());
+		rda.addFlashAttribute("next", pagingMaker.isNext());
+		
+		return "redirect:../boardType";
+	}
+	
+	@RequestMapping(value = "boardRequestUI/{page}")
+	public String boardRequestUI(HttpSession session,
+			@PathVariable("page") String page,
+			RedirectAttributes rda)
+	{
+		String type = "요청";
+		int curPage = Integer.parseInt(page);
+		int totalBoard = bService.totalBoardCnt();	
+		pagingMaker pagingMaker = new pagingMaker(curPage, 5, totalBoard, 5);
+		
+		List<BoardDTO> boardlistAll = bService.typeBoardList(pagingMaker, type);
+		SessionUtil su = new SessionUtil();
+		su.setAttribute("boardTypeList", boardlistAll, session);
+		
+		rda.addFlashAttribute("startPage", pagingMaker.getStartPage());
+		rda.addFlashAttribute("endPage", pagingMaker.getEndPage());
+		rda.addFlashAttribute("curPage", pagingMaker.getCurPage());
+		rda.addFlashAttribute("perPage", pagingMaker.getPerPage());
+		rda.addFlashAttribute("perPageCnt", pagingMaker.getPerPageCnt());
+		rda.addFlashAttribute("prev", pagingMaker.isPrev());
+		rda.addFlashAttribute("next", pagingMaker.isNext());
+		
+		return "redirect:../boardType";
 	}
 	
 }

@@ -15,33 +15,45 @@
           <a href="home" data-theme="_bgp">HOME</a>
         </li>
         <li>
-          <a href="#" data-theme="_bgp">분야보기</a>
+          <a href="#" data-theme="_bgp">종류</a>
           <ul>
             <li>
-              <a href="#" data-theme="_bgpd">철학</a>
+              <a href="#" data-theme="_bgpd">가구</a>
             </li>
             <li>
-              <a href="#" data-theme="_bgpd">문학</a>
+              <a href="#" data-theme="_bgpd">책</a>
             </li>
             <li>
-              <a href="#" data-theme="_bgpd">종교</a>
+              <a href="#" data-theme="_bgpd">차량</a>
+            </li>
+            <li>
+              <a href="#" data-theme="_bgpd">식료품</a>
+            </li>
+            <li>
+              <a href="#" data-theme="_bgpd">악세사리</a>
+            </li>
+            <li>
+              <a href="#" data-theme="_bgpd">의류</a>
+            </li>
+            <li>
+              <a href="#" data-theme="_bgpd">디지털</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="#" data-theme="_bgp">새로 들어온 책</a>
+          <a href="#" data-theme="_bgp">새로 들어온 중고품</a>
         </li>
         <li>
           <a href="boardUI/1" data-theme="_bgp">커뮤니티</a>
           <ul>
             <li>
-              <a href="boardFreeUI" data-theme="_bgpd">자유게시판</a>
+              <a href="boardFreeUI/1" data-theme="_bgpd">자유게시판</a>
             </li>
             <li>
-              <a href="#" data-theme="_bgpd">요청게시판</a>
+              <a href="boardRequestUI/1" data-theme="_bgpd">요청게시판</a>
             </li>
             <li>
-              <a href="#" data-theme="_bgpd">감상게시판</a>
+              <a href="boardAppreciateUI/1" data-theme="_bgpd">감상게시판</a>
             </li>
           </ul>
         </li>
