@@ -2,6 +2,7 @@
 <%@ page session="true" contentType="text/html; charset=utf-8"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="css/users.css">
+
 <!--
 START MODULE AREA 1: header1
 -->
@@ -9,13 +10,14 @@ START MODULE AREA 1: header1
   <div data-layout="_r">
     <div data-layout="al16 de10" class="MOD_HEADER1_Title">
       <h1 class="MOD_HEADER1_TextLogo">올드북스</h1>
-      <p class="MOD_HEADER1_Slogan">회원들끼리 책을 사고파는 사이트</p>
+      <p class="MOD_HEADER1_Slogan">회원들끼리 물품을 사고파는 중고장터</p>
     </div>
     <div data-layout="al16 de6" class="MOD_HEADER1_Details">
       <p class="MOD_HEADER1_Phone">대표자: 한승희&nbsp;<a href="tel:#">010 5467 6757</a></p>
       <!-- Search -->
       <form name="Header1" action="" method="">
-            도서검색<input id="MOD_HEADER1_Search" class="MOD_HEADER1_Search" type="search" placeholder="도서명"></input>
+      
+        <input id="MOD_HEADER1_Search" class="MOD_HEADER1_Search" type="search" placeholder="지역,상품등을 검색하세요"></input>
         <button>검색</button>    
         <label for="MOD_HEADER1_Search">Search</label>
       </form>

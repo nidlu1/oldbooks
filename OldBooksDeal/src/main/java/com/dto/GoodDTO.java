@@ -9,6 +9,8 @@ public class GoodDTO {
 	private String users_id;
 	private int board_no;
 	private int goods;
+	private int commentno;
+	
 	public GoodDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -21,10 +23,21 @@ public class GoodDTO {
 		this.board_no = board_no;
 		this.goods = goods;
 	}
+	
+	
+	public GoodDTO(int good_no, char idCheck, String users_id, int board_no, int goods, int commentno) {
+		super();
+		this.good_no = good_no;
+		this.idCheck = idCheck;
+		this.users_id = users_id;
+		this.board_no = board_no;
+		this.goods = goods;
+		this.commentno = commentno;
+	}
 	@Override
 	public String toString() {
 		return "GoodDTO [good_no=" + good_no + ", idCheck=" + idCheck + ", users_id=" + users_id + ", board_no="
-				+ board_no + ", goods=" + goods + "]";
+				+ board_no + ", goods=" + goods + ", commentno=" + commentno + "]";
 	}
 	public int getGood_no() {
 		return good_no;
@@ -55,6 +68,12 @@ public class GoodDTO {
 	}
 	public void setGoods(int goods) {
 		this.goods = goods;
+	}
+	public int getCommentno() {
+		return commentno;
+	}
+	public void setCommentno(int commentno) {
+		this.commentno = commentno;
 	}
 	
 	

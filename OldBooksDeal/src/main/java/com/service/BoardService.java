@@ -49,4 +49,9 @@ public class BoardService {
 		return list;
 	}
 
+	public List<BoardDTO> typeBoardList(pagingMaker pagingMaker, String type) {
+		List<BoardDTO> list = dao.typeBoardList(pagingMaker,type);
+		return list;
+	}
+
 }

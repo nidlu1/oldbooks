@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>메인</title>
+	<title>게시판</title>
 
 	<link rel="stylesheet" href="css/style.min.css">
 	<link rel="stylesheet" href="css/modules.css">
@@ -48,22 +48,13 @@
 	</script>
 </head>
 <!-- End Head -->
-<c:if test="${!empty sighUpComplete}">
-	<script type="text/javascript">
-		alert("${sighUpComplete}");
-	</script>
-</c:if>
-<c:if test="${!empty uUpdateCom}">
-	<script type="text/javascript">
-		alert("${uUpdateCom}");
-	</script>
-</c:if>
+
 <body class="default">
 	<jsp:include page="commons/header.jsp"/>
 	<jsp:include page="commons/menu.jsp"/>
 <hr>
-	<jsp:include page="product/productList.jsp"/>
+	<jsp:include page="board/boardType.jsp"/>
 <script src="js/index.js"></script>
-</body>
 
+</body>
 </html>

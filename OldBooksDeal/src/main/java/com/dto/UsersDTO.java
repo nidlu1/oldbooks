@@ -3,7 +3,7 @@ package com.dto;
 import org.apache.ibatis.type.Alias;
 
 @Alias(value = "usersDTO")
-public class UsersDTO extends BoardAbstractDTO{
+public class UsersDTO extends UsersAbstractDTO{
 	
 	
 	public UsersDTO() {

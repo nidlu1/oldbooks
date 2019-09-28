@@ -71,4 +71,21 @@ where	cc.rn &gt;= 1+#{pm.pageCnt}*(#{pm.curPage}-1)
 
 
 </select>
+
+<select id="typeBoardList" resultType="BoardDTO" parameterType="hashmap">
+
+select 	no, group_no, group_order, depth, type, title, content, good, views, writedate, id, username
+from (
+        select	rownum rn, no, group_no, group_order, depth, type, title, content, good, views, writedate, id, username
+        from (
+                select 	aa.no, aa.group_no, aa.group_order, aa.depth, aa.type, aa.title, aa.content, aa.good, aa.views, aa.writedate, id, bb.username
+                from BOARD_DB aa join USERS_DB bb using(id)   
+                where type = #{type}
+                order by no desc           
+            ) cc
+        where rownum &lt;= #{pm.pageCnt}*#{pm.curPage}
+        ) cc
+where	cc.rn &gt;= 1+#{pm.pageCnt}*(#{pm.curPage}-1)
+
+</select>
 </mapper>

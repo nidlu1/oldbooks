@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mpComent">
+	<select id="cAllList" parameterType="int" resultType="ComentDTO">
+		select comentno,board_no, username, group_no, group_order, depth, content, good, writeday
+		from comment_db aa join USERS_DB bb
+        on (aa.USERS_ID = bb.ID)
+		where board_no = #{no}
+		order by writeday
+	</select>
+	
+	<select id="selectOne" parameterType="hashmap" resultType="ComentDTO">
+		select comentno,board_no, username, group_no, group_order, depth, content, good, writeday
+			from (
+			        select /*+ index_desc(aa coment_pk)*/ rownum rn, comentno,board_no, username, group_no, group_order, depth, content, good, writeday
+			        from comment_db aa join USERS_DB bb
+			        on (aa.USERS_ID = bb.ID)
+			        order by writeday desc
+			    )
+			where board_no = #{bno} and ROWNUM = 1
+	</select>
+	
+	<select id="selectOne1" parameterType="hashmap" resultType="ComentDTO">
+
+	</select>
+	
+	<insert id="insertComent" parameterType="hashmap">
+		insert into comment_db(comentno, users_id, board_no, group_no, group_order, depth, content, good, writeday)
+		values(seq_coment_no.nextval, #{id}, #{bno}, seq_coment_no.nextval, 0, 0, #{content}, 0, to_char(sysdate,'MM-DD HH24:MI:SS'))
+		
+	</insert>
+	
+	<delete id="delComent" parameterType="hashmap">
+		DELETE FROM comment_db t
+		WHERE t.COMENTNO = #{no}
+	</delete>
+	
+	<update id="goodUpdate" parameterType="hashmap">
+		UPDATE comment_db c
+		SET c.GOOD = c.GOOD+1
+		where c.COMENTNO = #{cgoodVar}
+	</update>
+</mapper>

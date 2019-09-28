@@ -1,6 +1,6 @@
 package com.dto;
 
-public abstract class BoardAbstractDTO {
+public abstract class UsersAbstractDTO {
 	private String id;
 	private String pw;
 	private String username;
@@ -9,11 +9,11 @@ public abstract class BoardAbstractDTO {
 	private String post;
 	private String addr1;
 	private String addr2;
-	public BoardAbstractDTO() {
+	public UsersAbstractDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public BoardAbstractDTO(String id, String pw, String username, String email, String phone, String post,
+	public UsersAbstractDTO(String id, String pw, String username, String email, String phone, String post,
 			String addr1, String addr2) {
 		super();
 		this.id = id;

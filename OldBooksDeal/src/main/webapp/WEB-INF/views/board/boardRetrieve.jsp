@@ -20,10 +20,12 @@
 }
 </style>
 
-<c:set value="${boardRetrieve}" var="b"></c:set>
+<c:set value="${boardRetrieve}" var="b"/>
+<c:set value="${comentList}" var="c"/>
+<c:set value="${goodList}" var="g"/>
 
+<h1>게시판 보기 </h1>
 
-<h1>게시판 보기</h1>
 <br>
 <div class="inline">
 	<div>
@@ -66,10 +68,12 @@
 		</c:if>
 	</div>
 </div>
-
+<br>
+댓글
 <div>
 	<jsp:include page="/WEB-INF/views/comment/cWrite.jsp"/>
 </div>
+
 <script	type="text/javascript">//버튼 클릭시 링크이동하는 스크립트
 	$(document).ready(function()
 	{

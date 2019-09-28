@@ -29,6 +29,42 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </update>
 
 
+<insert id="goodInsertComent" parameterType="hashmap">
+	insert into GOOD_DB (good_no, idcheck, users_id, board_no, comentno)
+	values(seq_board_no.nextval, 0, #{id}, #{bno}, #{cgoodVar})
+</insert>
 
+<update id="goodUpdate" parameterType="hashmap">
+	UPDATE 	comment_db
+	SET 	good = good+1
+	where 	comentno = #{cgoodVar}
+</update>
+
+<update id="idcheckComent" parameterType="hashmap">
+	UPDATE 	good_db
+	SET 	idcheck = '1'
+	where 	users_id =#{id} and comentno=#{cgoodVar}
+</update>
+
+
+<select id="goodSelect22" parameterType="hashmap" resultType="int">
+	select c.good
+	from GOOD_DB g join comment_db c
+	on g.COMENTNO=c.COMENTNO
+	where c.comentno = #{cgoodVar}
+</select>
+
+<select id="gListAll" parameterType="int" resultType="GoodDTO">
+	select g.good_no good_no, g.IDCHECK idCheck, g.USERS_ID users_id, g.BOARD_NO board_no, c.GOOD goods, c.COMENTNO commentno
+	from GOOD_DB g join COMMENT_DB c
+	on g.COMENTNO=c.COMENTNO
+</select>
+
+<select id="selectCheck" parameterType="hashmap" resultType="GoodDTO">
+	select g.good_no good_no, g.IDCHECK idCheck, g.USERS_ID users_id, g.BOARD_NO board_no, c.GOOD goods, c.COMENTNO commentno
+	from GOOD_DB g join COMMENT_DB c
+	on g.COMENTNO=c.COMENTNO;
+	where g.IDCHECK='1' and g.USERS_ID = #{id} and g.COMENTNO = #{cgoodVar} and g.BOARD_NO = #{bno}
+</select>
 
 </mapper>

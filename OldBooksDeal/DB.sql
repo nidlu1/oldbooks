@@ -90,8 +90,12 @@ CREATE TABLE good_db
   users_id varchar2(50) CONSTRAINT goods_fk_users REFERENCES users_db(id) ON DELETE CASCADE,
   board_no number(10) CONSTRAINT goods_fk_board REFERENCES board_db(no) ON DELETE CASCADE
 ); 
-drop SEQUENCE seq_board_no;
-create SEQUENCE seq_board_no
+alter table GOOD_DB
+add comentno number(10) CONSTRAINT good_fk_coment REFERENCES comment_db(comentno) ON DELETE CASCADE;
+
+
+drop SEQUENCE seq_good_no;
+create SEQUENCE seq_good_no
 start with 1;
 
 insert into GOOD_DB (good_no, idcheck, users_id, board_no)
@@ -101,3 +105,81 @@ select good_no, idCheck, users_id, board_no, good as goods
 from good_db gg join board_db bb
 on gg.BOARD_NO = bb.NO
 and users_id = 'dd' and board_no = 5;
+
+--coment_db
+drop table comment_db;
+CREATE TABLE comment_db
+(
+  comentno number (10) CONSTRAINT coment_pk primary key,
+  users_id varchar2(50) CONSTRAINT coment_fk_board REFERENCES users_db(id) ON DELETE CASCADE,
+  board_no number(10) CONSTRAINT coment_fk_user REFERENCES board_db(no) ON DELETE CASCADE,
+  group_no number(3) ,
+  group_order number(3) ,
+  depth number(3) ,
+  content varchar2(500) ,
+  good number(3)
+); 
+alter table comment_db
+add writeday date;
+
+
+drop SEQUENCE seq_coment_no;
+create SEQUENCE seq_coment_no
+start with 1;
+
+insert into comment_db (comentno, users_id, board_no, group_no, group_order, depth, content, good, writeday)
+values(seq_coment_no.nextval, 'x', 21, seq_coment_no.nextval, 0, 0, '댓글임6', 2, sysdate);
+
+select comentno,board_no, username, group_no, group_order, depth, content, good, writeday 
+from comment_db aa join USERS_DB bb
+on (aa.USERS_ID = bb.ID)
+where board_no = 21;
+
+
+--product db, pco db
+
+drop table product_board_db CASCADE CONSTRAINTS;
+CREATE TABLE product_board_db
+(
+  pboard_no number(10) CONSTRAINT product_board_db_pk primary key,
+  productImage varchar2(100) , 
+  resistdate date ,
+  title varchar2(100) ,
+  pcontents varchar2(1000) ,
+  pview number(10),
+  id VARCHAR2(50) CONSTRAINT product_board_db_users_db_fk REFERENCES users_DB(id) ON DELETE CASCADE
+);
+drop SEQUENCE seq_pboard_no;
+create SEQUENCE seq_pboard_no
+start with 1;
+
+
+drop table product_db;
+CREATE TABLE product_db
+(
+  productno number(10) CONSTRAINT product_db_pk primary key,
+  resist date ,
+  issell char(1) ,
+  price number(10),
+  pboard_no number(10) CONSTRAINT product_db_product_board_db_fk references product_board_db(pboard_no) ON DELETE CASCADE,
+  productType varchar2(50),
+  product_Location varchar2(50),
+  productImage varchar2(200)
+); 
+drop SEQUENCE seq_pno;
+create SEQUENCE seq_pno
+start with 1;
+
+drop table pcoment_db;
+CREATE TABLE pcoment_db
+(
+  pcno number(10) CONSTRAINT pcoment_db_pk primary key,
+  resistdate date ,
+  pcoment varchar2(500) ,
+  id VARCHAR2(50) CONSTRAINT product_board_db_pcoment_db_fk REFERENCES users_DB(id) ON DELETE CASCADE,
+  pboard_no number(10) CONSTRAINT product_db_pcoment_db_fk references product_board_db(pboard_no) ON DELETE CASCADE
+); 
+
+drop SEQUENCE seq_pcno;
+create SEQUENCE seq_pcno
+start with 1;
