@@ -142,7 +142,6 @@ drop table product_board_db CASCADE CONSTRAINTS;
 CREATE TABLE product_board_db
 (
   pboard_no number(10) CONSTRAINT product_board_db_pk primary key,
-  productImage varchar2(100) , 
   resistdate date ,
   title varchar2(100) ,
   pcontents varchar2(1000) ,
@@ -182,4 +181,17 @@ CREATE TABLE pcoment_db
 
 drop SEQUENCE seq_pcno;
 create SEQUENCE seq_pcno
+start with 1;
+
+
+--image
+drop table image_db;
+CREATE TABLE image_db
+(
+  imageNo number(10) CONSTRAINT image_db_pk primary key,
+  imageName varchar2(100),
+  PBOARD_NO number(10) CONSTRAINT image_db_PRODUCT_BOARD_DB_fk references PRODUCT_BOARD_DB(PBOARD_NO) ON DELETE CASCADE
+); 
+drop SEQUENCE seq_image;
+create SEQUENCE seq_image
 start with 1;

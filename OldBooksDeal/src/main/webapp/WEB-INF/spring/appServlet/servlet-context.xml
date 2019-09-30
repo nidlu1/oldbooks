@@ -21,6 +21,7 @@
 	<mvc:view-controller path="/userUpdate" view-name="userUpdateUI"/>
 	<mvc:view-controller path="/boardSch" view-name="boardSchUI"/>
 	<mvc:view-controller path="/boardType" view-name="boardTypeUI"/>
+	<mvc:view-controller path="/logCheckProductRegist" view-name="productRegistUI"/>
 	
 	
 <!-- 	ViewResolver -->

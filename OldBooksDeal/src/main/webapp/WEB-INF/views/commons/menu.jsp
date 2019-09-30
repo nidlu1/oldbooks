@@ -59,7 +59,7 @@
         </li>
         <c:if test="${!empty Userlogin}">
 	        <li>
-	          <a href="#" data-theme="_bgp">책 등록하기</a>
+	          <a href="logCheckProductRegist" data-theme="_bgp">상품 등록하기</a>
 	        </li>
 	        <li>	
 	          <a href="#" data-theme="_bgp">myPage</a>
