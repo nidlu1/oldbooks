@@ -139,6 +139,8 @@ where board_no = 21;
 --product db, pco db
 
 drop table product_board_db CASCADE CONSTRAINTS;
+--------------------
+drop table product_board_db CASCADE CONSTRAINTS;
 CREATE TABLE product_board_db
 (
   pboard_no number(10) CONSTRAINT product_board_db_pk primary key,
@@ -146,13 +148,22 @@ CREATE TABLE product_board_db
   title varchar2(100) ,
   pcontents varchar2(1000) ,
   pview number(10),
-  id VARCHAR2(50) CONSTRAINT product_board_db_users_db_fk REFERENCES users_DB(id) ON DELETE CASCADE
+  id VARCHAR2(50) CONSTRAINT product_board_db_users_db_fk REFERENCES users_DB(id) ON DELETE CASCADE,
+   issell char(1) ,
+    price number(10),
+      productType varchar2(50),
+  product_Location varchar2(50),
+  productImage varchar2(200)
 );
 drop SEQUENCE seq_pboard_no;
 create SEQUENCE seq_pboard_no
 start with 1;
 
+drop SEQUENCE seq_pboard_no;
+create SEQUENCE seq_pboard_no
+start with 1;
 
+--생성하지 않는다.
 drop table product_db;
 CREATE TABLE product_db
 (
