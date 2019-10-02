@@ -4,7 +4,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mpProduct">
 	<insert id="productBoardInsert" parameterType="ProductDTO">
-		insert into PRODUCT_BOARD_DB(PBOARD_NO,RESISTDATE,TITLE,PCONTENTS,PVIEW,id,ISSELL,PRICE,PRODUCTTYPE,PRODUCT_LOCATION,PRODUCTIMAGE)
-		values (seq_pboard_no.nextval,sysdate,#{title},#{pcontents},0,#{id},#{isSell},#{price},#{productType},#{productLocation},#{imageName})
+		insert into PRODUCT_BOARD_DB(PBOARD_NO,RESISTDATE,TITLE,PCONTENTS,PVIEW,id,ISSELL,PRICE,PRODUCTTYPE,PRODUCT_LOCATION,originalFilename1,originalFilename2,originalFilename3)
+		values (seq_pboard_no.nextval,to_date(to_char(sysdate,'yy/mm/dd hh24:mi'), 'YY/MM/DD HH24:MI'),#{title},#{pcontents},0,#{id},#{isSell},#{price},#{productType},#{productLocation},#{originalFilename1},#{originalFilename2},#{originalFilename3})
 	</insert>
+	
+	<select id="selectList_Product_OrderByDate" resultType="ProductDTO">
+		select 		PBOARD_NO, RESISTDATE, TITLE, PCONTENTS, PVIEW, ID, username, ISSELL, PRICE, PRODUCTTYPE, PRODUCT_LOCATION, ORIGINALFILENAME1, ORIGINALFILENAME2, ORIGINALFILENAME3
+		from 		PRODUCT_BOARD_DB join users_db using (id)
+		where 		ISSELL = 0
+		order by	RESISTDATE desc
+	</select>
 </mapper>

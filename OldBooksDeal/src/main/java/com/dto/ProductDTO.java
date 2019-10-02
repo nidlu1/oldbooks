@@ -10,6 +10,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class ProductDTO {
 	private int pboard_no;
 	private Date resistdate;
+	private String registdate;
 	private String title;
 	private String pcontents;
 	private int pview;
@@ -21,7 +22,9 @@ public class ProductDTO {
 	private String productType;
 	private String productLocation;
 	private int[] imageNo;
-	private String imageName;
+	private String originalFilename1;
+	private String originalFilename2;
+	private String originalFilename3;
 	private CommonsMultipartFile image1;
 	private CommonsMultipartFile image2;
 	private CommonsMultipartFile image3;
@@ -31,7 +34,8 @@ public class ProductDTO {
 	}
 	public ProductDTO(int pboard_no, Date resistdate, String title, String pcontents, int pview, String id,
 			String username, int isSell, int price, String productType, String productLocation, int[] imageNo,
-			String imageName, CommonsMultipartFile image1, CommonsMultipartFile image2, CommonsMultipartFile image3) {
+			String originalFilename1, String originalFilename2, String originalFilename3, CommonsMultipartFile image1,
+			CommonsMultipartFile image2, CommonsMultipartFile image3) {
 		super();
 		this.pboard_no = pboard_no;
 		this.resistdate = resistdate;
@@ -45,7 +49,35 @@ public class ProductDTO {
 		this.productType = productType;
 		this.productLocation = productLocation;
 		this.imageNo = imageNo;
-		this.imageName = imageName;
+		this.originalFilename1 = originalFilename1;
+		this.originalFilename2 = originalFilename2;
+		this.originalFilename3 = originalFilename3;
+		this.image1 = image1;
+		this.image2 = image2;
+		this.image3 = image3;
+		
+	}
+	public ProductDTO(int pboard_no, Date resistdate, String registdate, String title, String pcontents, int pview,
+			String id, String username, int isSell, int price, String productType, String productLocation,
+			int[] imageNo, String originalFilename1, String originalFilename2, String originalFilename3,
+			CommonsMultipartFile image1, CommonsMultipartFile image2, CommonsMultipartFile image3) {
+		super();
+		this.pboard_no = pboard_no;
+		this.resistdate = resistdate;
+		this.registdate = registdate;
+		this.title = title;
+		this.pcontents = pcontents;
+		this.pview = pview;
+		this.id = id;
+		this.username = username;
+		this.isSell = isSell;
+		this.price = price;
+		this.productType = productType;
+		this.productLocation = productLocation;
+		this.imageNo = imageNo;
+		this.originalFilename1 = originalFilename1;
+		this.originalFilename2 = originalFilename2;
+		this.originalFilename3 = originalFilename3;
 		this.image1 = image1;
 		this.image2 = image2;
 		this.image3 = image3;
@@ -122,11 +154,23 @@ public class ProductDTO {
 	public void setImageNo(int[] imageNo) {
 		this.imageNo = imageNo;
 	}
-	public String getImageName() {
-		return imageName;
+	public String getOriginalFilename1() {
+		return originalFilename1;
 	}
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
+	public void setOriginalFilename1(String originalFilename1) {
+		this.originalFilename1 = originalFilename1;
+	}
+	public String getOriginalFilename2() {
+		return originalFilename2;
+	}
+	public void setOriginalFilename2(String originalFilename2) {
+		this.originalFilename2 = originalFilename2;
+	}
+	public String getOriginalFilename3() {
+		return originalFilename3;
+	}
+	public void setOriginalFilename3(String originalFilename3) {
+		this.originalFilename3 = originalFilename3;
 	}
 	public CommonsMultipartFile getImage1() {
 		return image1;
@@ -146,13 +190,22 @@ public class ProductDTO {
 	public void setImage3(CommonsMultipartFile image3) {
 		this.image3 = image3;
 	}
+	
+	public String getRegistdate() {
+		return registdate;
+	}
+	public void setRegistdate(String registdate) {
+		this.registdate = registdate;
+	}
 	@Override
 	public String toString() {
 		return "ProductDTO [pboard_no=" + pboard_no + ", resistdate=" + resistdate + ", title=" + title + ", pcontents="
 				+ pcontents + ", pview=" + pview + ", id=" + id + ", username=" + username + ", isSell=" + isSell
 				+ ", price=" + price + ", productType=" + productType + ", productLocation=" + productLocation
-				+ ", imageNo=" + Arrays.toString(imageNo) + ", imageName=" + imageName + ", image1="
+				+ ", imageNo=" + Arrays.toString(imageNo) + ", originalFilename1=" + originalFilename1
+				+ ", originalFilename2=" + originalFilename2 + ", originalFilename3=" + originalFilename3 + ", image1="
 				+ image1 + ", image2=" + image2 + ", image3=" + image3 + "]";
 	}
+	
 	
 }

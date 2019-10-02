@@ -62,7 +62,6 @@
 	<jsp:include page="commons/header.jsp"/>
 	<jsp:include page="commons/menu.jsp"/>
 <hr>
-<!-- 	<img src="/deal/img/a.jpg" alt="안나옴3"> -->
 	<jsp:include page="product/productList.jsp"/>
 <script src="js/index.js"></script>
 </body>

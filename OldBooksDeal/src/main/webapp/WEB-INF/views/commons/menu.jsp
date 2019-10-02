@@ -41,7 +41,7 @@
           </ul>
         </li>
         <li>
-          <a href="#" data-theme="_bgp">새로 들어온 중고품</a>
+          <a href="selectList_Product_OrderByDate" data-theme="_bgp">새로 들어온 중고품</a>
         </li>
         <li>
           <a href="boardUI/1" data-theme="_bgp">커뮤니티</a>

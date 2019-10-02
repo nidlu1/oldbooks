@@ -153,7 +153,9 @@ CREATE TABLE product_board_db
     price number(10),
       productType varchar2(50),
   product_Location varchar2(50),
-  productImage varchar2(200)
+  originalFilename1 varchar2(200),
+  originalFilename2 varchar2(200),
+  originalFilename3 varchar2(200)
 );
 drop SEQUENCE seq_pboard_no;
 create SEQUENCE seq_pboard_no
