@@ -35,6 +35,7 @@
 				<value>com.dto.GoodDTO</value>
 				<value>com.dto.ComentDTO</value>
 				<value>com.dto.ProductDTO</value>
+				<value>com.dto.ProductComentDTO</value>
 			</list>
 		</property>
 	</bean>

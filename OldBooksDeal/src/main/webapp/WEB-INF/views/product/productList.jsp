@@ -12,7 +12,7 @@ START MODULE AREA 1: Feature 1
  
  	<c:forEach items="${productList}" var="prod">
 	    <div data-layout="ch8 ec4">
-	      <a href="#" class="MOD_FEATURE_Container">
+	      <a href="productDetail/${prod.pboard_no}" class="MOD_FEATURE_Container">
 	        <img class="MOD_FEATURE_Picture" src="/deal/img/${prod.originalFilename1}" alt="이미지가 없습니다" style="height: 400;width: 250" >
 	        <div class="MOD_FEATURE_TextContainer">
 	          <p class="MOD_FEATURE_Title" data-theme="_ts2">${prod.title}</p>
@@ -23,6 +23,9 @@ START MODULE AREA 1: Feature 1
  	</c:forEach>
   </div>
 </section>
+<c:if test="${empty productList}">
+	<h1>조회하신 상품들이 없습니다.</h1>
+</c:if>
 <!--
 END MODULE AREA 1: Feature 1
 -->

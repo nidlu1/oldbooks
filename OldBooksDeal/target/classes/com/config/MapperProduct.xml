@@ -14,4 +14,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where 		ISSELL = 0
 		order by	RESISTDATE desc
 	</select>
+	<select id="selectList_Product_OrderByViews" resultType="ProductDTO">
+		select 		PBOARD_NO, RESISTDATE, TITLE, PCONTENTS, PVIEW, ID, username, ISSELL, PRICE, PRODUCTTYPE, PRODUCT_LOCATION, ORIGINALFILENAME1, ORIGINALFILENAME2, ORIGINALFILENAME3
+		from 		PRODUCT_BOARD_DB join users_db using (id)
+		where 		ISSELL = 0
+		order by	PVIEW
+	</select>
+	<select id="productDetail" resultType="ProductDTO" parameterType="String">
+		select 		PBOARD_NO, RESISTDATE, TITLE, PCONTENTS, PVIEW, ID, username, ISSELL, PRICE, PRODUCTTYPE, PRODUCT_LOCATION, ORIGINALFILENAME1, ORIGINALFILENAME2, ORIGINALFILENAME3
+		from 		PRODUCT_BOARD_DB join users_db using (id)
+		where 		ISSELL = 0 and PBOARD_NO = #{pno}
+	</select>
+	
+	<insert id="insertProductComent" parameterType="hashmap">
+		INSERT INTO product_comment_db(pcomentno,users_id,PBOARD_NO,group_no,group_order,depth,content,writeday)
+		VALUES 		(seq_pcomentno.nextval,#{id},#{pboardno},seq_pcomentno.nextval,0,0,#{ccontent},sysdate)
+	</insert>
+	<select id="comentList" resultType="ProductComentDTO" parameterType="String">
+		select 	PCOMENTNO, GROUP_NO, GROUP_ORDER, DEPTH, CONTENT, WRITEDAY, USERS_ID id, uu.USERNAME
+		from 	product_comment_db pp join users_db uu on pp.USERS_ID=uu.ID
+		where 	pp.PBOARD_NO = #{pno}
+		order by pcomentno
+	</select>
+	
+	<delete id="deleteProductComent" parameterType="int">
+		delete 
+		from PRODUCT_BOARD_DB
+		where PBOARD_NO = #{pno}
+	</delete>
+	
+	<update id="isSellProductBoard" parameterType="int">
+		UPDATE PRODUCT_BOARD_DB a
+		SET a.ISSELL = 1
+		where PBOARD_NO = #{pno}
+	</update>
+	
+	<select id="productBoardListById" parameterType="hashmap" resultType="ProductDTO">
+		select 		PBOARD_NO, RESISTDATE, TITLE, PCONTENTS, PVIEW, ID, username, ISSELL, PRICE, PRODUCTTYPE, PRODUCT_LOCATION, ORIGINALFILENAME1, ORIGINALFILENAME2, ORIGINALFILENAME3
+		from 		PRODUCT_BOARD_DB join users_db using (id)
+		where 		ISSELL = #{isSell} and ID =#{id}
+		order by	RESISTDATE desc
+	</select>
 </mapper>

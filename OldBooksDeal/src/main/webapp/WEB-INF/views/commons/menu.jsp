@@ -15,7 +15,7 @@
           <a href="home" data-theme="_bgp">HOME</a>
         </li>
         <li>
-          <a href="#" data-theme="_bgp">종류</a>
+          <a href="home" data-theme="_bgp">종류</a>
           <ul>
             <li>
               <a href="#" data-theme="_bgpd">가구</a>
@@ -61,8 +61,16 @@
 	        <li>
 	          <a href="logCheckProductRegist" data-theme="_bgp">상품 등록하기</a>
 	        </li>
-	        <li>	
+	        <li>
 	          <a href="#" data-theme="_bgp">myPage</a>
+	          	<ul>
+	          	 <li>
+			      	<a href="logCheckMyPage/isNotSell/${Userlogin.id}" data-theme="_bgpd">판매중인 물품 리스트 보기</a>
+	          	 </li>
+	          	 <li>
+			      	<a href="logCheckMyPage/isSell/${Userlogin.id}" data-theme="_bgpd">판매완료된 리스트 보기</a>
+	          	 </li>
+	          	</ul>
 	        </li>
 		</c:if>
       </ul>

@@ -23,6 +23,8 @@
 	<mvc:view-controller path="/boardType" view-name="boardTypeUI"/>
 	<mvc:view-controller path="/logCheckProductRegist" view-name="productRegistUI"/>
 	<mvc:view-controller path="/selectList_Product_OrderByDate" view-name="productListOrderByDateUI"/>
+	<mvc:view-controller path="/productDetail" view-name="productDetailUI"/>
+	<mvc:view-controller path="/productListOrderById" view-name="productListOrderByIdUI"/>
 	
 	
 <!-- 	ViewResolver -->

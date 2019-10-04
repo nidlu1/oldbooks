@@ -1,5 +1,6 @@
 package com.dto;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -7,7 +8,11 @@ import org.apache.ibatis.type.Alias;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 @Alias(value = "ProductDTO")
-public class ProductDTO {
+public class ProductDTO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -703743337035325777L;
 	private int pboard_no;
 	private Date resistdate;
 	private String registdate;

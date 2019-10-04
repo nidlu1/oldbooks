@@ -208,3 +208,19 @@ CREATE TABLE image_db
 drop SEQUENCE seq_image;
 create SEQUENCE seq_image
 start with 1;
+
+--productcomment
+drop table product_comment_db;
+CREATE TABLE product_comment_db
+(
+  pcomentno number (10) CONSTRAINT product_comment_pk primary key,
+  users_id varchar2(50) CONSTRAINT product_comment_users_db_fk REFERENCES users_db(id) ON DELETE CASCADE,
+  PBOARD_NO number(10) CONSTRAINT pcomment_pboard_NO REFERENCES product_board_db(PBOARD_NO) ON DELETE CASCADE,
+  group_no number(3) ,
+  group_order number(3) ,
+  depth number(3) ,
+  content varchar2(500) ,
+  writeday varchar2(50)
+); 
+create SEQUENCE seq_pcomentno
+start with 1;
