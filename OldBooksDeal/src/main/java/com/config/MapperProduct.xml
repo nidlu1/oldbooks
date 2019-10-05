@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mpProduct">
+	<insert id="productBoardInsert" parameterType="ProductDTO">
+		insert into PRODUCT_BOARD_DB(PBOARD_NO,RESISTDATE,TITLE,PCONTENTS,PVIEW,id,ISSELL,PRICE,PRODUCTTYPE,PRODUCT_LOCATION,originalFilename1,originalFilename2,originalFilename3)
+		values (seq_pboard_no.nextval,to_date(to_char(sysdate,'yy/mm/dd hh24:mi'), 'YY/MM/DD HH24:MI'),#{title},#{pcontents},0,#{id},#{isSell},#{price},#{productType},#{productLocation},#{originalFilename1},#{originalFilename2},#{originalFilename3})
+	</insert>
+	
+	<select id="selectList_Product_OrderByDate" resultType="ProductDTO">
+		select 		PBOARD_NO, RESISTDATE, TITLE, PCONTENTS, PVIEW, ID, username, ISSELL, PRICE, PRODUCTTYPE, PRODUCT_LOCATION, ORIGINALFILENAME1, ORIGINALFILENAME2, ORIGINALFILENAME3
+		from 		PRODUCT_BOARD_DB join users_db using (id)
+		where 		ISSELL = 0
+		order by	RESISTDATE desc
+	</select>
+	<select id="selectList_Product_OrderByViews" resultType="ProductDTO">
+		select 		PBOARD_NO, RESISTDATE, TITLE, PCONTENTS, PVIEW, ID, username, ISSELL, PRICE, PRODUCTTYPE, PRODUCT_LOCATION, ORIGINALFILENAME1, ORIGINALFILENAME2, ORIGINALFILENAME3
+		from 		PRODUCT_BOARD_DB join users_db using (id)
+		where 		ISSELL = 0
+		order by	PVIEW
+	</select>
+	<select id="productDetail" resultType="ProductDTO" parameterType="String">
+		select 		PBOARD_NO, RESISTDATE, TITLE, PCONTENTS, PVIEW, ID, username, ISSELL, PRICE, PRODUCTTYPE, PRODUCT_LOCATION, ORIGINALFILENAME1, ORIGINALFILENAME2, ORIGINALFILENAME3
+		from 		PRODUCT_BOARD_DB join users_db using (id)
+		where 		ISSELL = 0 and PBOARD_NO = #{pno}
+	</select>
+	
+	<insert id="insertProductComent" parameterType="hashmap">
+		INSERT INTO product_comment_db(pcomentno,users_id,PBOARD_NO,group_no,group_order,depth,content,writeday)
+		VALUES 		(seq_pcomentno.nextval,#{id},#{pboardno},seq_pcomentno.nextval,0,0,#{ccontent},sysdate)
+	</insert>
+	<select id="comentList" resultType="ProductComentDTO" parameterType="String">
+		select 	PCOMENTNO, GROUP_NO, GROUP_ORDER, DEPTH, CONTENT, WRITEDAY, USERS_ID id, uu.USERNAME
+		from 	product_comment_db pp join users_db uu on pp.USERS_ID=uu.ID
+		where 	pp.PBOARD_NO = #{pno}
+		order by pcomentno
+	</select>
+	
+	<delete id="deleteProductComent" parameterType="int">
+		delete 
+		from PRODUCT_BOARD_DB
+		where PBOARD_NO = #{pno}
+	</delete>
+	
+	<update id="isSellProductBoard" parameterType="int">
+		UPDATE PRODUCT_BOARD_DB a
+		SET a.ISSELL = 1
+		where PBOARD_NO = #{pno}
+	</update>
+	
+	<select id="productBoardListById" parameterType="hashmap" resultType="ProductDTO">
+		select 		PBOARD_NO, RESISTDATE, TITLE, PCONTENTS, PVIEW, ID, username, ISSELL, PRICE, PRODUCTTYPE, PRODUCT_LOCATION, ORIGINALFILENAME1, ORIGINALFILENAME2, ORIGINALFILENAME3
+		from 		PRODUCT_BOARD_DB join users_db using (id)
+		where 		ISSELL = #{isSell} and ID =#{id}
+		order by	RESISTDATE desc
+	</select>
+</mapper>

@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>메인</title>
+	<title>상세보기</title>
 
 	<link rel="stylesheet" href="css/style.min.css">
 	<link rel="stylesheet" href="css/modules.css">
@@ -62,8 +62,7 @@
 	<jsp:include page="commons/header.jsp"/>
 	<jsp:include page="commons/menu.jsp"/>
 <hr>
-<!-- 	<img src="/deal/img/a.jpg" alt="안나옴3"> -->
-	<jsp:include page="product/productList.jsp"/>
+	<jsp:include page="product/productDetail.jsp"/>
 <script src="js/index.js"></script>
 </body>
 

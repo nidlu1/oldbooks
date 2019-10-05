@@ -19,7 +19,9 @@ public class SessionUtil {
 		 * {comentList : cList} : 댓글전부를 저장하는 세션
 		 * {goodList : gList} : 좋아요 관련 세션 저장
 		 * {boardTypeList : boardlistAll} : 게시글 종류 관련 세션
-		 * 
+		 * {productList : productList} : 상품등록한 정보 관련 세션
+		 * {product : product} : 상품 하나에 관한 정보 관련 세션
+		 * {pcomentList : pcomentList} 상품게시판의 댓글 관련 세션
 		 */
 	}
 

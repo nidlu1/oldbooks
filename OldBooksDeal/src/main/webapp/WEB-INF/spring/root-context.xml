@@ -25,6 +25,7 @@
 				<value>classpath:com/config/MapperBoard.xml</value>
 				<value>classpath:com/config/MapperGood.xml</value>
 				<value>classpath:com/config/MapperComent.xml</value>
+				<value>classpath:com/config/MapperProduct.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
@@ -33,6 +34,8 @@
 				<value>com.dto.BoardDTO</value>
 				<value>com.dto.GoodDTO</value>
 				<value>com.dto.ComentDTO</value>
+				<value>com.dto.ProductDTO</value>
+				<value>com.dto.ProductComentDTO</value>
 			</list>
 		</property>
 	</bean>

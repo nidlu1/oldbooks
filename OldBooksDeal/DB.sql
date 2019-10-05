@@ -139,21 +139,33 @@ where board_no = 21;
 --product db, pco db
 
 drop table product_board_db CASCADE CONSTRAINTS;
+--------------------
+drop table product_board_db CASCADE CONSTRAINTS;
 CREATE TABLE product_board_db
 (
   pboard_no number(10) CONSTRAINT product_board_db_pk primary key,
-  productImage varchar2(100) , 
   resistdate date ,
   title varchar2(100) ,
   pcontents varchar2(1000) ,
   pview number(10),
-  id VARCHAR2(50) CONSTRAINT product_board_db_users_db_fk REFERENCES users_DB(id) ON DELETE CASCADE
+  id VARCHAR2(50) CONSTRAINT product_board_db_users_db_fk REFERENCES users_DB(id) ON DELETE CASCADE,
+   issell char(1) ,
+    price number(10),
+      productType varchar2(50),
+  product_Location varchar2(50),
+  originalFilename1 varchar2(200),
+  originalFilename2 varchar2(200),
+  originalFilename3 varchar2(200)
 );
 drop SEQUENCE seq_pboard_no;
 create SEQUENCE seq_pboard_no
 start with 1;
 
+drop SEQUENCE seq_pboard_no;
+create SEQUENCE seq_pboard_no
+start with 1;
 
+--생성하지 않는다.
 drop table product_db;
 CREATE TABLE product_db
 (
@@ -182,4 +194,33 @@ CREATE TABLE pcoment_db
 
 drop SEQUENCE seq_pcno;
 create SEQUENCE seq_pcno
+start with 1;
+
+
+--image
+drop table image_db;
+CREATE TABLE image_db
+(
+  imageNo number(10) CONSTRAINT image_db_pk primary key,
+  imageName varchar2(100),
+  PBOARD_NO number(10) CONSTRAINT image_db_PRODUCT_BOARD_DB_fk references PRODUCT_BOARD_DB(PBOARD_NO) ON DELETE CASCADE
+); 
+drop SEQUENCE seq_image;
+create SEQUENCE seq_image
+start with 1;
+
+--productcomment
+drop table product_comment_db;
+CREATE TABLE product_comment_db
+(
+  pcomentno number (10) CONSTRAINT product_comment_pk primary key,
+  users_id varchar2(50) CONSTRAINT product_comment_users_db_fk REFERENCES users_db(id) ON DELETE CASCADE,
+  PBOARD_NO number(10) CONSTRAINT pcomment_pboard_NO REFERENCES product_board_db(PBOARD_NO) ON DELETE CASCADE,
+  group_no number(3) ,
+  group_order number(3) ,
+  depth number(3) ,
+  content varchar2(500) ,
+  writeday varchar2(50)
+); 
+create SEQUENCE seq_pcomentno
 start with 1;
