@@ -24,7 +24,7 @@
               <a href="#" data-theme="_bgpd">책</a>
             </li>
             <li>
-              <a href="#" data-theme="_bgpd">차량</a>
+              <a href="#" data-theme="_bgpd">취미</a>
             </li>
             <li>
               <a href="#" data-theme="_bgpd">식료품</a>
