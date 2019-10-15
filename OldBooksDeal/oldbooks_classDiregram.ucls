@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.dto.BoardDTO" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/dto/BoardDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="765" width="351" x="2170" y="845"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.dto.ComentDTO" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/dto/ComentDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="603" width="265" x="38" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.dto.ProductComentDTO" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/dto/ProductComentDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="549" width="305" x="343" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.dto.UsersAbstractDTO" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/dto/UsersAbstractDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="549" width="371" x="688" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.dto.UsersDTO" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/dto/UsersDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="329" x="688" y="845"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.commons.util.SessionUtil" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/commons/util/SessionUtil.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="236" x="1099" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.commons.util.Filter" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/commons/util/Filter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="305" x="1375" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.dto.UploadDTO" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/dto/UploadDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="222" x="1720" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.dto.PageBoardDTO" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/dto/PageBoardDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="639" width="313" x="2170" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.commons.util.pagingMaker" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/commons/util/pagingMaker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="405" width="148" x="1982" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.dto.GoodDTO" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/dto/GoodDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="459" width="189" x="2523" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.commons.intercepter.LogCheck" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/commons/intercepter/LogCheck.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="356" x="2752" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.dto.ProductDTO" project="OldBooksDeal" 
+    file="/OldBooksDeal/src/main/java/com/dto/ProductDTO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1179" width="818" x="3148" y="-374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="14">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="15" name="list"/>      
+      <multiplicity id="16" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="17">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
