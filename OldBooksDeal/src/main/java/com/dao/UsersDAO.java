@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class UsersDAO {
 
 	public void userUpdate(UsersDTO uDTO) {
 		template.update("mpUsers.userUpdate", uDTO);
+	}
+
+	public UsersDTO idchecked(Map<String, String> userid) {
+		UsersDTO user = template.selectOne("mpUsers.idchecked", userid);
+		return user;
 	}
 
 }

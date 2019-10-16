@@ -17,4 +17,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set pw=#{pw}, username=#{username}, email=#{email}, phone=#{phone}, post=#{post}, addr1=#{addr1}, addr2=#{addr2}
 		where id=#{id}
 	</update>
+	<select id="idchecked" parameterType="map" resultType="usersDTO">
+		select id, pw, username, email, phone, post, addr1, addr2
+		from users_db
+		where id = #{userid}
+	</select>
+	
 </mapper>

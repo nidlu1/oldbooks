@@ -65,6 +65,27 @@
 		{
 			$("#signUpForm").attr("action","userUpdateSend");
 		});
+		
+		$("#pwConfirmBtn").on("click",function()
+			{
+			var mPW = document.getElementById("pw").value;
+				var mPWOL = document.getElementById("pwConfirm").value;
+				if(mPW == mPWOL)
+				{
+					if(mPW == null)
+					{
+						alert("공란입니다");
+					}else{
+					alert("비밀번호 일치");
+					PwOverLapCheck = true;								
+					}
+					
+				}else
+				{
+					alert("비밀번호 불일치");
+				}
+			});
+		
 	});
 	
 </script>

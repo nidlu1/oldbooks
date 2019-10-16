@@ -1,6 +1,7 @@
 package com.service;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,11 @@ public class UsersService {
 
 	public void userUpdate(UsersDTO uDTO) {
 		dao.userUpdate(uDTO);
+	}
+
+	public UsersDTO idchecked(Map<String, String> userid) {
+		UsersDTO user = dao.idchecked(userid);
+		return user;
 	}
 
 }
