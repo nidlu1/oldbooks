@@ -31,9 +31,12 @@
 				<tr>
 					<td>물건종류</td>
 					<td>
+						<input type="radio" value="가구" name="productType" style="width: 30">가구
 						<input type="radio" value="책" name="productType" style="width: 30">책
-						<input type="radio" value="가전제품" name="productType" style="width: 30">가전제품
-						<input type="radio" value="식료품" name="productType" style="width: 30">식료품
+						<input type="radio" value="취미" name="productType" style="width: 30">취미
+						<input type="radio" value="악세사리" name="productType" style="width: 30">"악세사리"
+						<input type="radio" value="의류" name="productType" style="width: 30">"의류"
+						<input type="radio" value="디지털" name="productType" style="width: 30">"디지털"
 					</td>
 				</tr>			
 				<tr>

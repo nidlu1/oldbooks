@@ -1,6 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="true" contentType="text/html; charset=utf-8"%>
+<style>
+.AP_Menu_List{
+      z-index: 3;
+}
 
+</style>
 <section class="MOD_MENU" data-theme="_bgp">
   <div data-layout="_r" class="nopadding">
     <nav class="MOD_MENU_Nav">
@@ -24,7 +29,7 @@
               <a href="#" data-theme="_bgpd">책</a>
             </li>
             <li>
-              <a href="#" data-theme="_bgpd">차량</a>
+              <a href="#" data-theme="_bgpd">취미</a>
             </li>
             <li>
               <a href="#" data-theme="_bgpd">식료품</a>
