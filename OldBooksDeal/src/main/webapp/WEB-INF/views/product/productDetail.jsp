@@ -57,13 +57,13 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <c:if test="${produ.originalFilename1 != 'isEmpty'}">
-      	<div class="swiper-slide"><img src="/deal/img/${produ.originalFilename1}" style="width: 75%; height: 75%;"></div>
+      	<div class="swiper-slide"><img src="/C:\\oldbooksDirectory/${produ.originalFilename1}" style="width: 75%; height: 75%;"></div>
       </c:if>
       <c:if test="${produ.originalFilename2 != 'isEmpty'}">
-      	<div class="swiper-slide"><img src="/deal/img/${produ.originalFilename2}" style="width: 75%; height: 75%;"></div>
+      	<div class="swiper-slide"><img src="/C:\\oldbooksDirectory/${produ.originalFilename2}" style="width: 75%; height: 75%;"></div>
       </c:if>
       <c:if test="${produ.originalFilename3 != 'isEmpty'}">
-     	 <div class="swiper-slide"><img src="/deal/img/${produ.originalFilename3}" style="width: 75%; height: 75%;"></div>
+     	 <div class="swiper-slide"><img src="/C:\\oldbooksDirectory/${produ.originalFilename3}" style="width: 75%; height: 75%;"></div>
       </c:if>
     </div>
     <!-- Add Pagination -->
