@@ -20,6 +20,11 @@ where	cc.rn >= 1+#{pageCnt}*(#{curPage}-1)
 
 </select>
 
+<select id="listAll2" resultType="BoardDTO">
+	select 	no, group_no, group_order, depth, type, title, content, good, views, writedate, id, username
+	from BOARD_DB
+</select>
+
 <select id="totalBoardCnt" resultType="int">
 	select count(*) from board_db
 </select>

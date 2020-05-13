@@ -57,13 +57,14 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <c:if test="${produ.originalFilename1 != 'isEmpty'}">
-      	<div class="swiper-slide"><img src="/C:\\oldbooksDirectory/${produ.originalFilename1}" style="width: 75%; height: 75%;"></div>
+<%--       	<div class="swiper-slide"><img src="../img/${produ.originalFilename1}" style="width: 75%; height: 75%;"></div> --%>
+      	<div class="swiper-slide"><img src="image/${produ.originalFilename1}" style="width: 75%; height: 75%;"></div>
       </c:if>
       <c:if test="${produ.originalFilename2 != 'isEmpty'}">
-      	<div class="swiper-slide"><img src="/C:\\oldbooksDirectory/${produ.originalFilename2}" style="width: 75%; height: 75%;"></div>
+      	<div class="swiper-slide"><img src="image/${produ.originalFilename2}" style="width: 75%; height: 75%;"></div>
       </c:if>
       <c:if test="${produ.originalFilename3 != 'isEmpty'}">
-     	 <div class="swiper-slide"><img src="/C:\\oldbooksDirectory/${produ.originalFilename3}" style="width: 75%; height: 75%;"></div>
+     	 <div class="swiper-slide"><img src="image/${produ.originalFilename3}" style="width: 75%; height: 75%;"></div>
       </c:if>
     </div>
     <!-- Add Pagination -->
@@ -117,7 +118,7 @@
 		</table>
 	</div>
 	<div>			
-		<button class="boardBtn" id="btnReturn">돌아가기 </button>			
+		<button class="boardBtn" id="btnReturn">돌아가기5 </button>			
 		<c:if test="${produ.id == Userlogin.id}">
 			<button class="boardBtn" id="bUpdate">수정하기</button>
 			<button class="boardBtn" id="bDelete">삭제하기</button>

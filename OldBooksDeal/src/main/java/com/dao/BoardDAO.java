@@ -16,8 +16,14 @@ public class BoardDAO {
 	
 	@Autowired
 	SqlSessionTemplate template;
+	
 	public List<BoardDTO> listAll(pagingMaker pm) {
 		List<BoardDTO> list = template.selectList("mpBoard.listAll",pm);
+		return list;
+		
+	}
+	public List<BoardDTO> listAll2() {
+		List<BoardDTO> list = template.selectList("mpBoard.listAll2");
 		return list;
 	}
 
@@ -60,4 +66,6 @@ public class BoardDAO {
 		List<BoardDTO> list = template.selectList("mpBoard.typeBoardList",map);
 		return list;
 	}
+
+
 }

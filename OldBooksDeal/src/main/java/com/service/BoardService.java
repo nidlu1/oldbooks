@@ -20,6 +20,11 @@ public class BoardService {
 		List<BoardDTO> list = dao.listAll(pm);
 		return list;
 	}
+	
+	public List<BoardDTO> listAll2() {
+		List<BoardDTO> list = dao.listAll2();
+		return list;
+	}
 
 	public int totalBoardCnt() {
 		int totalBoardCnt = dao.totalBoardCnt();

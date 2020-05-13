@@ -65,6 +65,10 @@
 <!-- 	<img src="/deal/img/a.jpg" alt="안나옴3"> -->
 	<jsp:include page="product/productList.jsp"/>
 <script src="js/index.js"></script>
+
+<form action="gridtest" method="post">
+	<input type="submit" value="그리드테스트">
+</form>
 </body>
 
 </html>

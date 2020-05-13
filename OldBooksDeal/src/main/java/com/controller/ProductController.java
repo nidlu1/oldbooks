@@ -55,7 +55,7 @@ public class ProductController {
 			if(theFile1!=null)
 			{
 				originalFilename1  = pDTO.getId()+"_"+uploadTime+"_"+theFile1.getOriginalFilename();
-				File f1 = new File("C:\\Programming\\Project\\gitProject\\OldBooks\\OldBooksDeal\\src\\main\\webapp\\WEB-INF\\views\\img", originalFilename1);
+				File f1 = new File("C:\\Programming\\Project\\gitProject\\OldBooks\\OldBooksDeal\\src\\main\\webapp\\resources\\image", originalFilename1);
 				try {
 					theFile1.transferTo(f1);
 				} catch (IllegalStateException | IOException e) {
@@ -66,7 +66,7 @@ public class ProductController {
 			if(theFile2!=null)
 			{
 				originalFilename2  = pDTO.getId()+"_"+uploadTime+"_"+theFile2.getOriginalFilename();
-				File f2 = new File("C:\\Programming\\Project\\gitProject\\OldBooks\\OldBooksDeal\\src\\main\\webapp\\WEB-INF\\views\\img", originalFilename2);
+				File f2 = new File("C:\\Programming\\Project\\gitProject\\OldBooks\\OldBooksDeal\\src\\main\\webapp\\resources\\image", originalFilename2);
 				try {
 					theFile2.transferTo(f2);
 				} catch (IllegalStateException | IOException e) {
@@ -77,7 +77,7 @@ public class ProductController {
 			if(theFile3!=null)
 			{
 				originalFilename3  = pDTO.getId()+"_"+uploadTime+"_"+theFile3.getOriginalFilename();		
-				File f3 = new File("C:\\Programming\\Project\\gitProject\\OldBooks\\OldBooksDeal\\src\\main\\webapp\\WEB-INF\\views\\img", originalFilename3);
+				File f3 = new File("C:\\Programming\\Project\\gitProject\\OldBooks\\OldBooksDeal\\src\\main\\webapp\\resources\\image", originalFilename3);
 				try {
 					theFile3.transferTo(f3);
 				} catch (IllegalStateException | IOException e) {
